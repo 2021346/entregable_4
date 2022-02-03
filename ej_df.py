@@ -45,3 +45,15 @@ while opcion > 0:
 
     if opcion < 0 or opcion > 4:
                     opcion=int(input("Introduce una opción válida"))
+                    
+    elif(opcion==1):
+        df1=userRatingsMoviesDF.copy()
+        df1 = userRatingsMoviesDF.pivot_table(index=['title'], 
+                                              values=['rating'], 
+                                              columns=['gender'], 
+                                              aggfunc=[np.mean], 
+                                              fill_value=-1,
+                                              margins=True)
+    
+        rm=df1.loc[(df1.index.get_level_values('title').str.contains('Star Wars'))]
+        print("Proceso completado, cierre el programa para ver los resultados")
