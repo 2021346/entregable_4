@@ -71,8 +71,6 @@ while opcion > 0:
                        (peliculas2['COUNT']>1000)
 
                                        ]
-        mejorPeliculas = consulta1.sort_values(['MEDIA', 'COUNT'],ascending=False)
-        
-        df2.to_csv("C:/ExamenRecuperacion/Ejercicio2_MiguelFrejoMaranon.csv", sep=',')
-        
+
+        mejorPeliculas = consulta1.sort_values(['MEDIA', 'COUNT'],ascending=False)   
         print("Proceso completado, cierre el programa para ver los resultados")
