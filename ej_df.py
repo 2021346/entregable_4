@@ -74,3 +74,19 @@ while opcion > 0:
 
         mejorPeliculas = consulta1.sort_values(['MEDIA', 'COUNT'],ascending=False)   
         print("Proceso completado, cierre el programa para ver los resultados")
+        
+    elif(opcion==3):
+        df3=userRatingsMoviesDF.copy()
+        ej2=df3.loc[
+            
+            df3['genders'].str.contains('Horror')
+            ]
+        
+        print(ej2['age'].mean())
+        
+        df3=ej2.pivot_table(index=['user_id'], values=['age']).mean()
+        
+        
+        
+        rm2=df3.loc[(df3.index.get_level_values('genders').str.contains('Horror'))]['age'].mean()
+        print(f"La edad media de los usuarios TERRORÍFICOS es {round(rm2, 2)} años")
