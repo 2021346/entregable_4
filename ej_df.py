@@ -90,3 +90,23 @@ while opcion > 0:
         
         rm2=df3.loc[(df3.index.get_level_values('genders').str.contains('Horror'))]['age'].mean()
         print(f"La edad media de los usuarios TERRORÍFICOS es {round(rm2, 2)} años")
+
+    elif(opcion==4):
+        df4=userRatingsMoviesDF.copy()
+        
+        
+        df4['rating']=[x*2 for x in df4['rating']]
+        df4['rating']= df4['rating']*2
+        
+        df4['title']=df4['title'].str.upper()
+        df4['title']=[x.upper() for x in df4['title']]
+        
+        
+        df4['genders']=df4['genders'].str.lower()
+        df4['genders']=[x.lower() for x in df4['genders']]
+        
+        print("Proceso completado, cierre el programa para ver los resultados")
+    
+        
+    elif(opcion==0):
+        print("Saliendo del programa...")
