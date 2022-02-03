@@ -57,3 +57,19 @@ while opcion > 0:
     
         rm=df1.loc[(df1.index.get_level_values('title').str.contains('Star Wars'))]
         print("Proceso completado, cierre el programa para ver los resultados")
+
+    elif(opcion==2):
+        df2=userRatingsMoviesDF.copy()
+        
+        peliculas2= df2.groupby(['title'])['ratings'].agg(
+                                                           COUNT=np.size,
+                                                           MEDIA=np.mean
+                                                           )
+
+        consulta1=peliculas2.loc[
+                      
+                       (peliculas2['COUNT']>1000)
+
+                                       ]
+        mejorPeliculas = consulta1.sort_values(['MEDIA', 'COUNT'],ascending=False)   
+        print("Proceso completado, cierre el programa para ver los resultados")
