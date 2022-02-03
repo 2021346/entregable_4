@@ -31,3 +31,17 @@ ratings=pd.read_table('C:\ExamenRecuperacion\ml-1m/ratings.dat',
 merge_users_ratings=pd.merge(users, ratings)
 
 userRatingsMoviesDF=pd.merge(merge_users_ratings, movies)
+
+opcion=1
+while opcion > 0:
+    print("--------------------MENU-------------------")
+    print("----- 1.- Rating Medio STAR WARS por género. -----")
+    print("----- 2.- Películas Mejor Valoradas. -----")
+    print("----- 3.- Media de los usuarios del Género Terror. -----")
+    print("----- 4.- Actualización de datos(doble del rating, título a mayúsculas y géneros a minúsculas). -----")
+    print("----- 0.- Salir.-----")
+    print("---------------------------------------------------------------------------------------------------")
+    opcion=int(input("Introduzca una opción: "))
+
+    if opcion < 0 or opcion > 4:
+                    opcion=int(input("Introduce una opción válida"))
